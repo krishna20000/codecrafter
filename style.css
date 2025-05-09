@@ -1,0 +1,467 @@
+html {
+    scroll-behavior: smooth;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+.slide-in {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideIn 1s ease-out forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes slideIn {
+    to { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.custom-blue-btn {
+    background-color: #1E40AF;
+}
+.custom-blue-btn:hover {
+    background-color: #1E3A8A;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    transition: height 0.3s ease;
+}
+
+.scrolled .nav-wrapper {
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 24px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.scrolled .logo img {
+    height: 20px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+    margin: 0 5px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4361ee;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #4361ee;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}
+
+.active .nav-link {
+    color: #4361ee;
+}
+
+.active .nav-link::after {
+    width: 70%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle i {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.menu-toggle:hover i {
+    color: #4361ee;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.mobile-menu.active {
+    max-height: 400px;
+}
+
+.mobile-nav-item {
+    border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    background-color: #f8f9fa;
+    color: #4361ee;
+    padding-left: 25px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #4361ee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #3a56d4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+#projects {
+    padding: 40px;
+    background: #f8f8f8;
+  }
+  
+  .project-filters {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .project-filters button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .project-filters button:hover {
+    background-color: #e0f0ff;
+    color: #007BFF;
+    border-color: #007BFF;
+  }
+  
+  .clients-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .clients-title {
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .clients-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .client-box {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 200px;
+    transition: transform 0.3s;
+  }
+  
+  .client-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .client-count {
+    font-size: 2.5em;
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+  
+ 
+  
+  .project-filters .active {
+    background-color: #007BFF;
+    color: white;
+  }
+  
+  .project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .view-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.view-btn:hover {
+  background-color: #0056b3;
+}
+
+  
+  .project-card {
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-radius: 8px;
+    
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: block;
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    
+    
+  }
+
+  .project-card p{
+    font-size: 14px;
+    line-height: 1.5;
+    padding: auto;
+  }
+  
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .cta-button {
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-wrapper {
+        height: 60px;
+    }
+
+    .logo img {
+        height: 20px;
+    }
+
+    .mobile-menu {
+        top: 60px;
+    }
+
+    .header-right .cta-button {
+        display: none;
+    }
+
+    .mobile-nav-cta {
+        padding: 15px 20px;
+        text-align: center;
+    }
+}
+
+/* Entire Scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* slightly thinner for modern feel */
+    height: 10px; /* for horizontal scrollbars */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* subtle light background */
+    border-radius: 8px; /* rounded but not too rounded */
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.05); /* subtle inset shadow */
+  }
+  
+  /* Thumb */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* rich purple-blue gradient */
+    border-radius: 8px;
+    border: 2px solid #f1f1f1; /* clean gap effect */
+    transition: all 0.2s ease-out;
+  }
+  
+  /* Thumb Hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #9d40e7, #5d1ae3); /* slightly lighter on hover */
+    border: 2px solid #f1f1f1;
+    box-shadow: 0 0 5px rgba(142, 45, 226, 0.4); /* subtle glow effect */
+  }
+  
+  /* Thumb Active (when clicked) */
+  ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(135deg, #7425bb, #3900b3); /* darker when pressed */
+  }
+  
+  /* For corner between scrollbars */
+  ::-webkit-scrollbar-corner {
+    background: #f1f1f1;
+  }
+  
+  /* Firefox compatibility */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #6a11cb #f1f1f1;
+  }
+  
+  /* For dark mode support */
+  @media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar-track {
+      background: #2a2a2a;
+      box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.05);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      border-color: #2a2a2a;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      border-color: #2a2a2a;
+    }
+    
+    ::-webkit-scrollbar-corner {
+      background: #2a2a2a;
+    }
+    
+    * {
+      scrollbar-color: #6a11cb #2a2a2a;
+    }
+  }
+  /* Add this to your CSS */
+.header .nav-link, 
+.header .mobile-nav-link,
+.header a {
+    color: white !important; /* Force white color */
+    text-shadow: 0 0 1px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,1), 0 0 3px rgba(0,0,0,1); /* Strong text shadow */
+    letter-spacing: 0.02em; /* Slightly increase letter spacing */
+}
+
+/* Make sure the header itself has proper contrast */
+#header {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.8) !important; /* Stronger shadow for header */
+}
+
+/* Enhance hover states for better visibility */
+.header .nav-link:hover,
+.header .mobile-nav-link:hover {
+    color: #60a5fa !important; /* Brighter blue on hover */
+    text-shadow: 0 0 5px rgba(59, 130, 246, 0.9), 0 0 10px rgba(59, 130, 246, 0.5); /* Blue glow */
+}
+body, html {
+  margin: 0;
+  padding: 0;
+}
